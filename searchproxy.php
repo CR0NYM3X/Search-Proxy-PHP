@@ -50,8 +50,7 @@ IP RESERVADAS: https://es.wikipedia.org/wiki/Anexo:Direcciones_IP_reservadas
 
 
 
-// ejemplo :      php searchproxy.php 187.158.0.148 187.158.0.152 true
-
+// ejemplo :    php searchproxy.php 149.19.224.28 149.19.224.50
 
 
 //   AQUI VERIFICA SI SE INGRESO EL PARAMETRO DE IP DE INICIO Y IP FINAL
@@ -131,10 +130,9 @@ while (true)
 
 		}
 
-		$ip= $Oct1.'.'.$Oct2.'.'.$Oct3.'.'.$Oct4;
-		if(@$argv[3])
-			echo "\n".$ip;
-		 
+			echo "\n".$ip= $Oct1.'.'.$Oct2.'.'.$Oct3.'.'.$Oct4;
+
+
 		  manejoPuerto($ip); // aqui manda a consultar la ip y sus posibles puertos de proxys
 		  while(pcntl_waitpid(0, $status) != -1);
 
@@ -166,9 +164,8 @@ while (true)
 
 
 
-		$ip= $Oct1.'.'.$Oct2.'.'.$Oct3.'.'.$Oct4;
-		if(@$argv[3])
-			echo "\n".$ip;
+		echo "\n".$ip= $Oct1.'.'.$Oct2.'.'.$Oct3.'.'.$Oct4;
+	
 		 
 		manejoPuerto($ip);
 		 while(pcntl_waitpid(0, $status) != -1);
@@ -211,9 +208,8 @@ while (true)
 
 
 
-		$ip= $Oct1.'.'.$Oct2.'.'.$Oct3.'.'.$Oct4;
-		if(@$argv[3])
-			echo "\n".$ip;
+		echo "\n".$ip= $Oct1.'.'.$Oct2.'.'.$Oct3.'.'.$Oct4;
+
 	
 
 		manejoPuerto($ip);
@@ -244,9 +240,8 @@ while (true)
 
 
 
-			$ip= $Oct1.'.'.$Oct2.'.'.$Oct3.'.'.$Oct4;
-			if(@$argv[3])
-				echo "\n".$ip;
+			echo "\n".$ip= $Oct1.'.'.$Oct2.'.'.$Oct3.'.'.$Oct4;
+
 
 			
 			manejoPuerto($ip);
