@@ -39,9 +39,9 @@ IP RESERVADAS: https://es.wikipedia.org/wiki/Anexo:Direcciones_IP_reservadas
 
 # Total ips: 4,294,967,295
 
-#149.19.224.29
+
 #  0	.	0	.	0	.	0
-$Oct1=149; $Oct2=19; $Oct3=224; $Oct4=28;
+$Oct1=187; $Oct2=0; $Oct3=0; $Oct4=0;
 
 
 $ip= $Oct1.'.'.$Oct2.'.'.$Oct3.'.'.$Oct4;
