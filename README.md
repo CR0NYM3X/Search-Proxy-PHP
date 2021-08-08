@@ -1,5 +1,6 @@
 # Search Proxy
 
+![logo](test.PNG)
 Utiliza forks, Mysql, la configuracion se encuentra en el archivo llamado { conf.php }
 
 
