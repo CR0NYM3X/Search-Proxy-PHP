@@ -16,4 +16,4 @@ Morado	: El puerto contesta la peticion de google pero  no retorna el html de go
 ```
 
 ### Errores
-En caso de que no se inserte bien en la base de datos se genera un Error pero no se detiene el scrpit, solo lo reporta en el archivo llamado { error.txt }
+En caso de que no se inserten bien en la base de datos, se genera un Error pero no se detiene el scrpit, solo lo reporta en el archivo llamado    { error.txt }
