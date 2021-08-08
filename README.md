@@ -17,3 +17,9 @@ Morado	: El puerto contesta la peticion de google pero  no retorna el html de go
 
 ### Errores
 En caso de que no se inserten bien en la base de datos, se genera un Error pero no se detiene el scrpit, solo lo reporta en el archivo llamado    { error.txt }
+
+
+
+
+## Contribuir
+Encontraste un error? por favor de publicarlo en [issue tracker](https://github.com/CR0NYM3X/Search-Proxy-PHP/issues).
