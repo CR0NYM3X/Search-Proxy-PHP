@@ -14,3 +14,6 @@ Verde   : El puerto esta funcionando como un proxy
 Rojo	: El puerto esta abierto pero no es un proxy
 Morado	: El puerto contesta la peticion de google pero  no retorna el html de google, conclusion no es un proxy que se pueda usar
 ```
+
+### Errores
+En caso de que no se inserte bien en la base de datos se genera un Error pero no se detiene el scrpit, solo lo reporta en el archivo llamado { error.txt }
