@@ -83,9 +83,20 @@ function isOpenPort($ip,$puerto,$time=0.5)
 
 		if ( ($pag= $mm->exe_curl()) ) //  verificar si IP:PORT se conecto
 		{
-			echo $texto->txtcolor("|".$puerto,1,"verde","negro");
 
-			insertSQL($ip,$puerto); // Inserta el proxy IP:PORT a la base de datos
+			if (preg_match("/google.com/i", $pag))  // VERIFICA QUE LA CONTESTACION SEA DE GOOGLE Y NO DE UNA PAGINA DIFERENTE SI ES DE GOOGLE EL PORXY SI SIRVE
+			{
+				echo $texto->txtcolor("|".$puerto,1,"verde","negro");
+				insertSQL($ip,$puerto); // Inserta el proxy IP:PORT a la base de datos
+
+			}
+			else
+			{
+				echo $texto->txtcolor("|".$puerto."",1,"morado","negro");
+			}
+
+
+
 		}
 		else
 		{

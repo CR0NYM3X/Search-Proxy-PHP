@@ -12,6 +12,14 @@
  */
 
 
+/*
+Color Descripcion
+Verde	: Es un proxy
+Rojo	: El puerto esta abierto pero no es un proxy
+Morado	: El puerto contesta la peticion de google pero  no retorn el html de google, conclusion no es un proxy que se pueda usar
+
+*/
+
 
 require_once("conf.php");
 date_default_timezone_set('America/cancun'); #AJUSTANDO ZONA HORARIA DE MI CIUDAD
@@ -39,9 +47,9 @@ IP RESERVADAS: https://es.wikipedia.org/wiki/Anexo:Direcciones_IP_reservadas
 
 # Total ips: 4,294,967,295
 
-
+//149.19.224.30
 #  0	.	0	.	0	.	0
-$Oct1=187; $Oct2=0; $Oct3=0; $Oct4=0;
+$Oct1=149; $Oct2=19; $Oct3=224; $Oct4=28;
 
 
 $ip= $Oct1.'.'.$Oct2.'.'.$Oct3.'.'.$Oct4;
