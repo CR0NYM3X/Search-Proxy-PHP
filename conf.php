@@ -23,7 +23,7 @@ https://hidemy.name/es/proxy-list/?start=192#list
 
 
 // SI TIENES INTERNET MALO PUEDES USAR ESTE ARRAY
-$puertosProxy= [80,8080,8081,8090,8888,8123,9999,443,81,5678,4153,4145,10801,1080,1088,3128,9991,3129,31337,12345];
+$puertosProxy= [80,8080,8081,8888,8123,9999,443,81,5678,4153,4145,10801,1080,1088,3128,9991,3129,31337,12345];
 
 
 
@@ -160,7 +160,7 @@ function hilos($ip,$puertos)
 *	$cntHilos	=> Cantidad de Procesos que quieres que se abran
 */
 
-function manejoPuerto($ip,$cntHilos=20)
+function manejoPuerto($ip,$cntHilos=19)
 {
 
 

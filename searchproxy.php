@@ -47,19 +47,59 @@ IP RESERVADAS: https://es.wikipedia.org/wiki/Anexo:Direcciones_IP_reservadas
 
 # Total ips: 4,294,967,295
 
-//149.19.224.30
-#  0	.	0	.	0	.	0
-$Oct1=149; $Oct2=19; $Oct3=224; $Oct4=28;
+
+
+
+// ejemplo :      php searchproxy.php 187.158.0.148 187.158.0.152 true
+
+
+
+//   AQUI VERIFICA SI SE INGRESO EL PARAMETRO DE IP DE INICIO Y IP FINAL
+// 		IP INICIO DEFAULT = 0.0.0.0 |  IP FINAL DEFAULT = 255.255.255.255
+
+if(!is_null($argv[1]) and is_null($argv[2]))
+{
+		
+		$ipExp = explode(".", $argv[1]);
+		$Oct1=$ipExp[0]; $Oct2=$ipExp[1]; $Oct3=$ipExp[2]; $Oct4=$ipExp[3];
+
+}
+elseif (!is_null($argv[1]) and !is_null($argv[2])) 
+{
+
+		$ipExp1 = explode(".", $argv[1]); // ip inicio
+		$ipExp2 = explode(".", $argv[2]); // ip final
+
+		$Oct1=$ipExp1[0]; $Oct2=$ipExp1[1]; $Oct3=$ipExp1[2]; $Oct4=$ipExp1[3];
+
+
+
+}
+else{
+
+	#  0	.	0	.	0	.	0
+	$Oct1=0; $Oct2=0; $Oct3=0; $Oct4=0;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 $ip= $Oct1.'.'.$Oct2.'.'.$Oct3.'.'.$Oct4;
 
 $mascara=255;
 
-$cntIPS=1;  $CalculoIP=pow(($mascara+1), 4);
+$cntIPS=0;  $CalculoIP=pow(($mascara+1), 4);
 
 $ConsultaIPS=[];
-$cntConsultas=0;
 $MostrarCantidad=3;
 
 $i=100000;
@@ -77,7 +117,8 @@ while (true)
 	// OCTETO #4
 	while ( ($Oct4 !=  $mascara) )
 	{	
-		
+
+
 
 		// IP RESERVADA  0.0.0.0     – 0.255.255.255
 		if ( ($Oct1 == 0) ) {
@@ -90,12 +131,15 @@ while (true)
 
 		}
 
-
-		echo "\n".$ip= $Oct1.'.'.$Oct2.'.'.$Oct3.'.'.$Oct4;
-
+		$ip= $Oct1.'.'.$Oct2.'.'.$Oct3.'.'.$Oct4;
+		if(@$argv[3])
+			echo "\n".$ip;
+		 
 		  manejoPuerto($ip); // aqui manda a consultar la ip y sus posibles puertos de proxys
 		  while(pcntl_waitpid(0, $status) != -1);
 
+		 if( (($Oct1 == $ipExp2[0]) and ($Oct2 == $ipExp2[1]) and ($Oct3 == $ipExp2[2]) and ($Oct4 == $ipExp2[3])) )
+			break 2;	
 
 	}
 
@@ -118,11 +162,20 @@ while (true)
  			$Oct3++;	
 		}
 
-		echo "\n".$ip= $Oct1.'.'.$Oct2.'.'.$Oct3.'.'.$Oct4;
-		
+
+
+
+
+		$ip= $Oct1.'.'.$Oct2.'.'.$Oct3.'.'.$Oct4;
+		if(@$argv[3])
+			echo "\n".$ip;
+		 
 		manejoPuerto($ip);
 		 while(pcntl_waitpid(0, $status) != -1);
 
+		 if( (($Oct1 == $ipExp2[0]) and ($Oct2 == $ipExp2[1]) and ($Oct3 == $ipExp2[2]) and ($Oct4 == $ipExp2[3])) )
+			break 2;	
+		
 
 	}
 
@@ -156,12 +209,18 @@ while (true)
 			$Oct2=32;
 		}
 
-		echo "\n".$ip= $Oct1.'.'.$Oct2.'.'.$Oct3.'.'.$Oct4;
+
+
+		$ip= $Oct1.'.'.$Oct2.'.'.$Oct3.'.'.$Oct4;
+		if(@$argv[3])
+			echo "\n".$ip;
 	
 
 		manejoPuerto($ip);
 		 while(pcntl_waitpid(0, $status) != -1);
 
+		 if( (($Oct1 == $ipExp2[0]) and ($Oct2 == $ipExp2[1]) and ($Oct3 == $ipExp2[2]) and ($Oct4 == $ipExp2[3])) )
+			break 2;	
 	
 
 	}
@@ -169,7 +228,7 @@ while (true)
 
 
 	// OCTETO #1
-	while ( (($Oct1 !=  $mascara) and ($Oct2 >= $mascara) and ($Oct3 >= $mascara)  and ($Oct4 >= $mascara)  )  )
+	while ( (($Oct1 !=  $mascara) and ($Oct2 >= $mascara) and ($Oct3 >= $mascara)  and ($Oct4 >= $mascara)  )    )
 	{
 	
 		
@@ -183,34 +242,39 @@ while (true)
 		}	
 
 
-			echo "\n".$ip= $Oct1.'.'.$Oct2.'.'.$Oct3.'.'.$Oct4;
+
+
+			$ip= $Oct1.'.'.$Oct2.'.'.$Oct3.'.'.$Oct4;
+			if(@$argv[3])
+				echo "\n".$ip;
 
 			
 			manejoPuerto($ip);
 			 while(pcntl_waitpid(0, $status) != -1);
 
+		 if( (($Oct1 == $ipExp2[0]) and ($Oct2 == $ipExp2[1]) and ($Oct3 == $ipExp2[2]) and ($Oct4 == $ipExp2[3])) )
+			break 2;	
 
 	}
 
 
-		
-
 
 
 	# EN CASO SE HAGA UN BUCLE SE CIERRE 
-	if ( ($Oct3 == $mascara) and ($Oct4 == $mascara) and ($Oct2 == $mascara) and ($Oct1 == $mascara) ) 
+	if ( (($Oct3 == $mascara) and ($Oct4 == $mascara) and ($Oct2 == $mascara) and ($Oct1 == $mascara))  ) 
 	{
-
-		echo "\n\n".date('m-d-Y h:i:s a', time()); 
-		echo  "\n"." IP Contadas : ".$cntIPS." y IP Calculadas ".$CalculoIP;
-		echo "\n Cantidad de consultas internet : ".$cntConsultas;
 		break;
-
 	}
 
 
 }
 
+
+
+
+
+echo "\n\n ".date('m-d-Y h:i:s a', time()); 
+echo  "\n"." IP Contadas : ".$cntIPS."\n";
 
 empty($ConsultaIPS);
 
